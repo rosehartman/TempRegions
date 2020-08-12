@@ -17,7 +17,7 @@ library(rgdal)
 
 delta = read_sf("DeltaShapefile/hydro_delta_marsh.shp")
 load("stations.rdata")
-cols = brewer.pal(6, "Dark2")
+cols = brewer.pal(7, "Dark2")
 
 ui <- fluidPage(
     
@@ -32,7 +32,7 @@ ui <- fluidPage(
         #        addTiles() %>% 
                 setView(lng = -121.363590, lat=38.668483,zoom=7) %>% 
                 addPolygons(data=delta,weight=1,col = 'black')  %>% 
-                addCircles(data=stashap, col = ~cols[grps6], opacity = 1) %>% 
+                addCircles(data=stashap, col = ~cols[cluster], opacity = 1) %>% 
                 addDrawToolbar(targetGroup = "drawnPoly", 
                                rectangleOptions = F, 
                                polylineOptions = F, 
